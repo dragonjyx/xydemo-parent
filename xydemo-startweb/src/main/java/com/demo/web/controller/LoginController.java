@@ -29,7 +29,8 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "login",method = RequestMethod.GET)
-    public String login(){
+    public String login(HttpServletRequest request){
+        log.warn("sessionId:{}",request.getSession().getId());
         return "login";
     }
 
@@ -86,7 +87,7 @@ public class LoginController {
 
     //json数据交互
     @ResponseBody
-    @RequestMapping(value = "user-info/query",method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "user-info/query",method = RequestMethod.POST)
     public UserInfo queryUserInfo(@RequestBody UserInfo user){
         userInfo.setUserName(user.getUserName());
         return userInfo;
