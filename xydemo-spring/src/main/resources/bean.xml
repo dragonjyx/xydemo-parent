@@ -1,0 +1,14 @@
+<beans>
+
+
+    <bean id="fruit" class="com.demo.model.Fruit">
+        <property name="name" value="橙子"></property>
+        <property name="size" value="200"></property>
+    </bean>
+
+
+</beans>
+
+
+
+

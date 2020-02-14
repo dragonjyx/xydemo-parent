@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="RED" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="com.demo.model.ColorEnums.RED" />
+    </bean>
+
+    <bean id="fruit" class="com.demo.model.Fruit">
+        <property name="name" value="橙子"/>
+        <property name="size" value="200"/>
+        <property name="color" ref="RED"/>
+    </bean>
+
+    <bean id="source" class="com.demo.model.Source">
+        <property name="name" value="水"/>
+        <property name="size" value="200"/>
+    </bean>
+
+    <bean id="machine" class="com.demo.model.Machine">
+        <property name="name" value="果汁机" />
+        <property name="source" ref="source"/>
+        <property name="fruit" ref="fruit"/>
+    </bean>
+
+</beans>

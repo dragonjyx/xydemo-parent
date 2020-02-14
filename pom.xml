@@ -20,6 +20,7 @@
     <modules>
         <module>xydemo-web</module>
         <module>xydemo-startweb</module>
+        <module>xydemo-spring</module>
     </modules>
 
 
