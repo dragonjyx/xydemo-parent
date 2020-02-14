@@ -20,25 +20,37 @@ import javax.annotation.Resource;
 public class SpringIOCTest {
 
     private final static String xmlPath = "classpath:spring/applicationContext-beans.xml";
-    private ApplicationContext context = null;
+    private ApplicationContext applicationContext = null;
 
     @Before
     public void init(){
-        context = new ClassPathXmlApplicationContext(xmlPath);
-        ((ClassPathXmlApplicationContext) context).start();//启动spring
+        applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+        ((ClassPathXmlApplicationContext) applicationContext).start();//启动spring
     }
 
     @Test
     public void testDI(){
-        Machine machine = context.getBean(Machine.class);
+        Machine machine = applicationContext.getBean(Machine.class);
         FruitJuice fruitJuice = machine.makeJuice("橙汁");
         fruitJuice.getFruitJuice();
+    }
+
+    @Test
+    public void testDI2(){
+
+        Machine machine1 = (Machine) applicationContext.getBean("machine1");
+        FruitJuice fruitJuice1 = machine1.makeJuice("橙汁");
+        fruitJuice1.getFruitJuice();
+
+        Machine machine2 = (Machine) applicationContext.getBean("machine2");
+        FruitJuice fruitJuice2 = machine2.makeJuice("西瓜汁");
+        fruitJuice2.getFruitJuice();
     }
 
 
     @After
     public void destory(){
-        ((ClassPathXmlApplicationContext) context).stop();//停止spring
+        ((ClassPathXmlApplicationContext) applicationContext).stop();//停止spring
     }
 
 }

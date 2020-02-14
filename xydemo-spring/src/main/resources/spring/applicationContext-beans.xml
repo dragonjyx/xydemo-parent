@@ -28,4 +28,16 @@
         <property name="fruit" ref="fruit"/>
     </bean>
 
+    <bean id="machine1" class="com.demo.model.Machine">
+        <property name="name" value="果汁机" />
+        <property name="source" ref="source"/>
+        <property name="fruit" ref="fruit"/>
+    </bean>
+
+    <bean id="machine2" class="com.demo.model.Machine">
+        <property name="name" value="果汁机" />
+        <property name="source" ref="source"/>
+        <property name="fruit" ref="fruit"/>
+    </bean>
+
 </beans>
