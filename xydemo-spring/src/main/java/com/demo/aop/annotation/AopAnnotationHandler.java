@@ -30,7 +30,6 @@ public class AopAnnotationHandler {
 
     /**
      * 前置通知
-     *
      * @param joinPoint
      */
     @Before("PointcutDeclaration()")
@@ -40,7 +39,6 @@ public class AopAnnotationHandler {
 
     /**
      * 后置通知（无论方法是否发生异常都会执行,所以访问不到方法的返回值）
-     *
      * @param joinPoint
      */
     @After("PointcutDeclaration()")

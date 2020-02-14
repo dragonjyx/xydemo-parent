@@ -33,7 +33,8 @@ public class DynamicProxyTest {
 
     @Test
     public void testDynamicProxy(){
-        JavaProxyInvocationHandler proxyInvocationHandler = new JavaProxyInvocationHandler(new HouseDynamicAgent(new Owner(){
+        JavaProxyInvocationHandler proxyInvocationHandler = new JavaProxyInvocationHandler(
+                new HouseDynamicAgent(new Owner(){
             @Override
             public void findResult(String res) {
                 System.out.println("小红获取到中介的结果："+res);
