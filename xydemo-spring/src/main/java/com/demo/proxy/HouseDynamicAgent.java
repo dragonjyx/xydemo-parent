@@ -27,10 +27,12 @@ public class HouseDynamicAgent implements Agent {
             System.out.println("请说说您的需求");
             return;
         }
+
         findHouse();
         String res = "根据您的要求" + demand.toString() + "为您找到房子";
         //回调
         this.owner.findResult(res);
+
     }
 
     private void findHouse(){

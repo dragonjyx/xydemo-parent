@@ -5,6 +5,15 @@ public class Source {
     private Integer size;
     private String name;
 
+    public Source() {
+        super();
+    }
+
+    public Source(Integer size, String name) {
+        this.size = size;
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

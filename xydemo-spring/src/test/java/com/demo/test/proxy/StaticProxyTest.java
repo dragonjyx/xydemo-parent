@@ -24,10 +24,8 @@ public class StaticProxyTest {
 
     @Test
     public void testFindHouse(){
-
         //小红
         XiaoHong xiaoHong = new XiaoHong();
-
         //中介
         Agent agent =  new HouseAgent(xiaoHong);
         //录入需求

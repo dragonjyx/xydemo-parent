@@ -10,9 +10,6 @@ public class Machine {
     //水果
     private Fruit fruit;
 
-    public String getName() {
-        return name;
-    }
 
     public void setName(String name) {
         this.name = name;

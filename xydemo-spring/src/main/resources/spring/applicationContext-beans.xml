@@ -18,8 +18,8 @@
     </bean>
 
     <bean id="source" class="com.demo.model.Source">
-        <property name="name" value="水"/>
-        <property name="size" value="200"/>
+        <constructor-arg name="name" value="水"/>
+        <constructor-arg name="size" value="200"/>
     </bean>
 
     <bean id="machine" class="com.demo.model.Machine">
