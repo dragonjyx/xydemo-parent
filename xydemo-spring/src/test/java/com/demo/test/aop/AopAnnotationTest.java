@@ -15,8 +15,8 @@ import java.util.Map;
  * 使用spring 注解注入
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/applicationContext-aop-scan.xml"})
-public class AopTest {
+@ContextConfiguration({"classpath:spring/applicationContext-aop-scan-annotation.xml"})
+public class AopAnnotationTest {
 
     @Autowired
     private HouseAgentService houseAgentService;
