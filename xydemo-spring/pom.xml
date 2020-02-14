@@ -14,20 +14,24 @@
 
     <dependencies>
 
+        <!--单元测试-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13</version>
             <scope>test</scope>
         </dependency>
+        <!--单元测试 end-->
 
-
+        <!--xml解析-->
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
+        <!--xml解析 end-->
 
+        <!--工具类-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
@@ -38,7 +42,7 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
-
+        <!--工具类 end-->
 
 
         <!-- Spring -->
@@ -70,6 +74,29 @@
             <scope>test</scope>
         </dependency>
         <!--Spring -->
+
+
+
+        <!--AOP start-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- aop aspect注解导包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.9</version>
+        </dependency>
+        <!--AOP end-->
+
+
 
 
     </dependencies>

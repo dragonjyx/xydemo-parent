@@ -16,7 +16,7 @@ public class DynamicProxyTest {
     public void testNoDynamicProxy(){
         Agent agent = new HouseDynamicAgent(new Owner() {
             @Override
-            protected void findResult(String res) {
+            public void findResult(String res) {
                 System.out.println("小红获取到中介的结果："+res);
             }
         });
@@ -35,7 +35,7 @@ public class DynamicProxyTest {
     public void testDynamicProxy(){
         JavaProxyInvocationHandler proxyInvocationHandler = new JavaProxyInvocationHandler(new HouseDynamicAgent(new Owner(){
             @Override
-            protected void findResult(String res) {
+            public void findResult(String res) {
                 System.out.println("小红获取到中介的结果："+res);
             }
         }));

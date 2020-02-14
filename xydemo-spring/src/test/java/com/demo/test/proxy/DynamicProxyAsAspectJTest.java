@@ -26,7 +26,7 @@ public class DynamicProxyAsAspectJTest {
      */
     private class XiaoHong extends Owner{
         @Override
-        protected void findResult(String res) {
+        public void findResult(String res) {
             System.out.println("小红获取到中介的结果："+res);
         }
     }
