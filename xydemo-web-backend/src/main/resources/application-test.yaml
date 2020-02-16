@@ -1,0 +1,15 @@
+server:
+  port: 10001
+
+
+logging:
+  config: classpath:log4j2-spring.xml
+  level: debug
+spring:
+  datasource:
+    druid:
+      url: jdbc\:mysql\://www.app2y.com:3306/db_xydemo?useUnicode=true&characterEncoding=utf8
+      username: testmysql
+      password: testmysql
+
+

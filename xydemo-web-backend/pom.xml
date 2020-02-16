@@ -30,18 +30,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <!--添加模板引擎 start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,8 +37,7 @@
         </dependency>
         <!--添加模板引擎 end-->
 
-
-
+        <!--引入工具类 start-->
         <dependency>
             <groupId>com.xydemo.parent</groupId>
             <artifactId>xydemo-utils</artifactId>
@@ -66,6 +53,23 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--引入工具类 end-->
+
+        <!--引入持久层 start-->
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-dao-common</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--引入持久层 end-->
+
+
 
     </dependencies>
 

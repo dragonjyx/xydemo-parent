@@ -1,10 +1,42 @@
+
 server:
   port: 10001
+
+
 spring:
+  profiles:
+    active: test
   freemarker:
     suffix: .html
   mvc:
     static-path-pattern: /static/**
+  datasource:
+    name: db_xydemo
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: stat,slf4j
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initial-size: 1
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+mybatis:
+  config-location: classpath:mapper/*.xml
+  type-aliases-package: com.web.model
+pagehelper:
+  auto-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  default-count: true
+
 
 
 swagger2-api:
