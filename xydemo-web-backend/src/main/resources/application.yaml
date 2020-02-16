@@ -1,11 +1,10 @@
-
 server:
   port: 10001
-
+logging:
+  config: classpath:log4j2-spring.xml
+  level: debug
 
 spring:
-  profiles:
-    active: test
   freemarker:
     suffix: .html
   mvc:
@@ -14,6 +13,9 @@ spring:
     name: db_xydemo
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
+      url: jdbc\:mysql\://www.app2y.com:3306/db_xydemo?useUnicode=true&characterEncoding=utf8
+      username: testmysql
+      password: testmysql
       filters: stat,slf4j
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 1
@@ -36,7 +38,6 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   default-count: true
-
 
 
 swagger2-api:
