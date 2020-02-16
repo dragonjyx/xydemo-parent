@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="xydemo-dao-common" />
         <module name="xydemo-spring" />
         <module name="xydemo-startweb" />
+        <module name="xydemo-utils" />
         <module name="xydemo-web" />
+        <module name="xydemo-web-backend" />
       </profile>
     </annotationProcessing>
   </component>

@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 其他配置
  */
-@Configuration
+//@Configuration
 public class WebConfig extends WebMvcConfig {
+
 
 }

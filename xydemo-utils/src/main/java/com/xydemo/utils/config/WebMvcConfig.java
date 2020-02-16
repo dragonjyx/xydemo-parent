@@ -65,19 +65,26 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SwaggerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+                .excludePathPatterns("/docs.html","/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
     }
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         //重写这个方法，映射静态资源文件
-        registry.addResourceHandler("/**");
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/");
 
         //必须配置
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/resources/")
                 .addResourceLocations("classpath:/static/")
                 .addResourceLocations("classpath:/public/");
+
+        //swagger
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("docs.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
 
         //webjar
         registry.addResourceHandler("/webjars/**")

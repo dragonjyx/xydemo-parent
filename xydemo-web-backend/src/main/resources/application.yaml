@@ -1,0 +1,20 @@
+server:
+  port: 10001
+spring:
+  freemarker:
+    suffix: .html
+  mvc:
+    static-path-pattern: /static/**
+
+
+swagger2-api:
+  enable-swagger: true
+  title: "Api文档"
+  description: "demo Api文档"
+  version: 1.0
+  name: "管理后台"
+  url: "http://localhost:10001/docs.html"
+  email: "674806334@qq.com"
+  termsOfServiceUrl: "NO terms of service"
+  license: "DEMO Public License 1.0"
+  licenseUrl: "http://localhost:10001/docs.html"
