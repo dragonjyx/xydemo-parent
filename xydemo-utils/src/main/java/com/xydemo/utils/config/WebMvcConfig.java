@@ -1,9 +1,9 @@
-package com.xydemo.config;
+package com.xydemo.utils.config;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import org.springframework.context.annotation.Configuration;
+import com.xydemo.utils.interceptor.SwaggerInterceptor;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
@@ -16,7 +16,6 @@ import java.util.List;
  * @athoor: DRAGON-Yeah
  * @date: 2019/8/6 14:23
  */
-@Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
@@ -64,7 +63,9 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        super.addInterceptors(registry);
+        registry.addInterceptor(new SwaggerInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
     }
 
     @Override
@@ -78,8 +79,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/static/")
                 .addResourceLocations("classpath:/public/");
 
+        //webjar
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
         super.addResourceHandlers(registry);
     }
 }
