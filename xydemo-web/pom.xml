@@ -21,15 +21,66 @@
 
     <dependencies>
 
+        <!--spring boot 启动web 内嵌tomcat-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--spring boot 启动web 内嵌tomcat end-->
+
+
+        <!--添加模板引擎 start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!--添加模板引擎 end-->
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+
+        <!--
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-dao-common</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        -->
+
+
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-utils</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
     </dependencies>
 
     <build>
+        <finalName>xy-demo-web</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
