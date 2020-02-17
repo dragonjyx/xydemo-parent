@@ -21,7 +21,6 @@ public class WebConfig extends WebMvcConfig {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInteceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/login","/do-login","/static/**");
-        super.addInterceptors(registry);
+                .excludePathPatterns("/login","/do-login","/static/**","/docs.html","/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
     }
 }
