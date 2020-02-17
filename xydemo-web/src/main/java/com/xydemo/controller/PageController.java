@@ -2,9 +2,7 @@ package com.xydemo.controller;
 
 
 import com.xydemo.service.AuthenService;
-import com.xydemo.support.enums.XyDemoReturnCodeEnum;
 import com.xydemo.support.req.LoginReq;
-import com.xydemo.utils.asserts.ParameterAssert;
 import com.xydemo.utils.uniqueid.UniqueIdGenerate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +25,7 @@ public class PageController {
     @Autowired
     private AuthenService authenService;
 
-    private static final String LOGIN_TOKEN = "LOGIN_TOKEN";
+    public static final String LOGIN_TOKEN = "LOGIN_TOKEN";
 
     @ApiOperation(value = "登录页面")
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -67,6 +65,16 @@ public class PageController {
     }
 
 
+
+    @ApiOperation(value = "登出")
+    @RequestMapping(value = "do-logout", method = RequestMethod.GET)
+    public String doLogout(HttpServletRequest request) {
+        request.getSession().removeAttribute(LOGIN_TOKEN);
+        return "redirect:login" ;
+    }
+
+
+
     @ApiOperation(value = "登录表单接口")
     @RequestMapping(value = "do-login", method = RequestMethod.POST)
     public String dologin(HttpServletRequest request, LoginReq loginReq) {
@@ -87,7 +95,7 @@ public class PageController {
 
         String token = UniqueIdGenerate.getId(LOGIN_TOKEN, 32);
         //把token存放在session
-        request.setAttribute("token", token);
+        request.getSession().setAttribute(LOGIN_TOKEN, token);
 
         return "redirect:index?token=" + token;
     }

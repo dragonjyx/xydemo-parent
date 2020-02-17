@@ -1,9 +1,11 @@
 package com.xydemo.config;
 
 
+import com.xydemo.inteceptor.LoginInteceptor;
 import com.xydemo.utils.config.WebMvcConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -15,5 +17,11 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "com.xydemo.mapper")
 public class WebConfig extends WebMvcConfig {
 
-
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInteceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/login","/do-login","/static/**");
+        super.addInterceptors(registry);
+    }
 }
