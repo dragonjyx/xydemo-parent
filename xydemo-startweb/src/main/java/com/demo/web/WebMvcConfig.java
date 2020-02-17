@@ -16,7 +16,7 @@ import java.util.List;
  * @athoor: DRAGON-Yeah
  * @date: 2019/8/6 14:23
  */
-@Configuration
+//@Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**

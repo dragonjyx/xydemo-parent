@@ -1,4 +1,4 @@
-package com.web.controller;
+package com.xydemo.controller;
 
 
 import io.swagger.annotations.Api;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Api(value = "页面模块，form表单提交功能")
+@Api(value = "页面模块，form表单提交功能",tags = "页面模块，form表单提交功能")
 @Slf4j
 @Controller
 @RequestMapping("/")

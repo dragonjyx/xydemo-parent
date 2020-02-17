@@ -43,23 +43,23 @@
             <optional>true</optional>
         </dependency>
 
-
-
-        <!--
+        <!--单元测试-->
         <dependency>
-            <groupId>com.xydemo.parent</groupId>
-            <artifactId>xydemo-dao-common</artifactId>
-            <version>1.0.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
         </dependency>
-        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--单元测试 end-->
 
 
+        <!--引入工具类 start-->
         <dependency>
             <groupId>com.xydemo.parent</groupId>
             <artifactId>xydemo-utils</artifactId>
@@ -75,6 +75,22 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--引入工具类 end-->
+
+
+        <!--引入持久层 start-->
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-dao-common</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--引入持久层 end-->
 
 
     </dependencies>
