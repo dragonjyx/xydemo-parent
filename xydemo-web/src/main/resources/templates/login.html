@@ -17,7 +17,6 @@
             <div class="logo"></div>
             <div class="form-item">
                 <input id="account" name="account" type="text" autocomplete="off" placeholder="账号">
-                <p class="username_tip tip">请输入合法的账号</p>
             </div>
             <div class="form-item">
                 <input id="password" name="password"  type="password" autocomplete="off" placeholder="登录密码">
@@ -25,6 +24,7 @@
             </div>
 
             <div class="form-item">
+                <p class="tip" style="display: block">${errTip!}</p>
                 <button id="submit" class="submit">登 录</button>
             </div>
 

@@ -20,6 +20,8 @@ public enum XyDemoReturnCodeEnum implements ReturnCode {
     UPLOAD_IMG_ERROR("104", "上传图片失败"),
     USERID_IS_NULL("105", "请填写用户ID"),
     USERINFO_IS_NULL("106", "查找用户信息失败"),
+    ACCOUNT_IS_NULL("107", "登录账号不能为空"),
+    PASSWORD_IS_NULL("108", "登录密码不能为空"),
     ;
 
     private String code;
