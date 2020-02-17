@@ -11,8 +11,10 @@
         <module name="xydemo-startweb" />
         <module name="xydemo-utils" />
         <module name="xydemo-web" />
-        <module name="xydemo-web-backend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="xydemo-web-backend" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
