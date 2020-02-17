@@ -1,9 +1,12 @@
 server:
   port: 10001
 
-#logging:
+logging:
+  level:
+    root: INFO
+    io.swagger.models.parameters.AbstractSerializableParameter: error
 #  config: classpath:log4j2-spring.xml
-#  level: debug
+
 
 spring:
   freemarker:
