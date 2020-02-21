@@ -45,9 +45,9 @@ public class JPAMyBatisTest {
         role.setAppId(appid);
         role.setRoleId(roleId);
 
-//        int result = roleMapper.insert(role);
+        int result = roleMapper.insert(role);
 
-        int result = roleMapper.addNewRole(role);
+//        int result = roleMapper.addNewRole(role);
         System.out.println("执行结果:"+result);
 
     }

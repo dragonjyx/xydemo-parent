@@ -23,8 +23,7 @@ public class ResponsibilityChainTest {
         resp.setParams("response msg:");
 
         FilterChain chain = new FilterChain();
-        chain.addFilter(new HtmlFilter())
-                .addFilter(new SensitiveFilter());
+        chain.addFilter(new SensitiveFilter()).addFilter(new HtmlFilter());
 
         System.out.println("message过滤之前：" + message);
         chain.doFilter(req,resp);

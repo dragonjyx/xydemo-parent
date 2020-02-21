@@ -1,7 +1,7 @@
 package com.dbaccess.chain;
 
 /**
- * 过滤器
+ * 过滤器(责任)
  */
 public interface Filter {
 
