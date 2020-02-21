@@ -2,9 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <typeAliases>
-        <package name="com.dbaccess.model"/>
-    </typeAliases>
+
 
     <plugins>
 
@@ -17,6 +15,7 @@
             <property name="reasonable" value="true"/>
         </plugin>
         -->
+
 
         <!--tk mapper插件-->
         <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
@@ -40,6 +39,8 @@
 
         <!--读写分离插件-->
         <!--<plugin interceptor="com.java.dbhelper.DynamicPlugin"></plugin>-->
+
+
 
     </plugins>
 </configuration>

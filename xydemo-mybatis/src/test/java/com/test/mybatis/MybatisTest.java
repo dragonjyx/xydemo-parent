@@ -25,10 +25,31 @@ public class MybatisTest {
     @Test
     public void testQuery(){
 
-        Role role = roleMapper.findById(1L);
         System.out.println("----------------------");
+        Role role = roleMapper.findById(1L);
         System.out.println(role.toString());
         System.out.println("----------------------");
+
+    }
+
+    @Test
+    public void testQueryWithCache(){
+
+        long start = System.currentTimeMillis();
+        System.out.println("----------------------");
+        Role role = roleMapper.findById(1L);
+        System.out.println("第一次查询时间:"+ (System.currentTimeMillis() - start) + "ms");
+        System.out.println(role.toString());
+        System.out.println("----------------------");
+
+
+        start = System.currentTimeMillis();
+        role = roleMapper.findById(1L);
+        System.out.println("第二次查询时间:"+ (System.currentTimeMillis() - start) + "ms");
+
+        start = System.currentTimeMillis();
+        role = roleMapper.findById(1L);
+        System.out.println("第三次查询时间:"+ (System.currentTimeMillis() - start) + "ms");
 
     }
 

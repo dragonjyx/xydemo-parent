@@ -17,6 +17,7 @@
 	<!-- 引入相关配置 -->
 	<beans:import resource="classpath:spring/spring-persistence-datasource.xml" />
 	<beans:import resource="classpath:spring/spring-persistence-mybatis.xml" />
+	<!--<beans:import resource="classpath:spring/spring-persistence-mybatis-ehcache.xml" />-->
 
 
 
