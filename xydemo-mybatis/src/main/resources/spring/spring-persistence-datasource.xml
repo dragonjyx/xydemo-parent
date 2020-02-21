@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+    <beans:beans>
+        <beans:bean id="abstractDataSource" abstract="true" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+            <beans:property name="driverClassName" value="#{jdbcConfig.driverClass}"/>
+
+            <beans:property name="initialSize" value="#{jdbcConfig.initialSize}"/>
+            <beans:property name="minIdle" value="#{jdbcConfig.minIdle}"/>
+            <beans:property name="maxActive" value="#{jdbcConfig.maxWait}"/>
+
+            <beans:property name="maxWait" value="#{jdbcConfig.maxWait}"/>
+            <beans:property name="timeBetweenEvictionRunsMillis" value="#{jdbcConfig.timeBetweenEvictionRunsMillis}"/>
+            <beans:property name="minEvictableIdleTimeMillis" value="#{jdbcConfig.minEvictableIdleTimeMillis}"/>
+
+            <beans:property name="validationQuery" value="#{jdbcConfig.validationQuery}"/>
+            <beans:property name="testWhileIdle" value="#{jdbcConfig.testWhileIdle}"/>
+            <beans:property name="testOnBorrow" value="#{jdbcConfig.testOnBorrow}"/>
+            <beans:property name="testOnReturn" value="#{jdbcConfig.testOnReturn}"/>
+
+            <beans:property name="poolPreparedStatements" value="#{jdbcConfig.poolPreparedStatements}"/>
+            <beans:property name="maxPoolPreparedStatementPerConnectionSize" value="#{jdbcConfig.maxPoolPreparedStatementPerConnectionSize}"/>
+            <beans:property name="filters" value="#{jdbcConfig.filters}"/>
+        </beans:bean>
+
+        <!-- 基本属性 url、user、password -->
+        <bean id="dataSource" parent="abstractDataSource">
+            <property name="url"      value="#{jdbcConfig.jdbcUrl}"/>
+            <property name="username" value="#{jdbcConfig.username}"/>
+            <property name="password" value="#{jdbcConfig.password}"/>
+        </bean>
+
+    </beans:beans>
+
+
+</beans>

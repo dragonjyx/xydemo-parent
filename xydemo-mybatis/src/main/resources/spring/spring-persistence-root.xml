@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:beans="http://www.springframework.org/schema/beans"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<!-- 自动扫描包 -->
+	<context:component-scan base-package="com.dbaccess.dao"/>
+
+	<!--引入配置文件-->
+	<util:properties id="jdbcConfig" location="classpath:jdbc.properties"/>
+
+	<!-- 引入相关配置 -->
+	<beans:import resource="classpath:spring/spring-persistence-datasource.xml" />
+	<beans:import resource="classpath:spring/spring-persistence-mybatis.xml" />
+
+
+
+
+</beans>

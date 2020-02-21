@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.dbaccess.model"/>
+    </typeAliases>
+
+    <plugins>
+
+        <!--分表插件-->
+        <!--<plugin interceptor="com.java.tbhelper.TableSplitPlugin"></plugin>-->
+
+        <!-- 分页插件
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+            <property name="reasonable" value="true"/>
+        </plugin>
+        -->
+
+        <!--tk mapper插件-->
+        <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
+            <!--================================================-->
+            <!--可配置参数说明(一般无需修改)-->
+            <!--================================================-->
+            <!--UUID生成策略-->
+            <!--配置UUID生成策略需要使用OGNL表达式-->
+            <!--默认值32位长度:@java.util.UUID@randomUUID().toString().replace("-", "")-->
+            <!--<property name="UUID" value="@java.util.UUID@randomUUID().toString()"/>-->
+            <!--主键自增回写方法,默认值MYSQL,详细说明请看文档-->
+            <property name="IDENTITY" value="MYSQL"/>
+            <!--序列的获取规则,使用{num}格式化参数，默认值为{0}.nextval，针对Oracle-->
+            <!--可选参数一共3个，对应0,1,2,分别为SequenceName，ColumnName,PropertyName-->
+            <property name="seqFormat" value="{0}.nextval"/>
+            <!--主键自增回写方法执行顺序,默认AFTER,可选值为(BEFORE|AFTER)-->
+            <!--<property name="ORDER" value="AFTER"/>-->
+            <!--通用Mapper接口，多个通用接口用逗号隔开-->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <!--读写分离插件-->
+        <!--<plugin interceptor="com.java.dbhelper.DynamicPlugin"></plugin>-->
+
+    </plugins>
+</configuration>
