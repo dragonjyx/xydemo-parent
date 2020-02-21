@@ -23,6 +23,7 @@
         <module>xydemo-spring</module>
         <module>xydemo-utils</module>
         <module>xydemo-dao-common</module>
+        <module>xydemo-mybatis</module>
     </modules>
 
 
