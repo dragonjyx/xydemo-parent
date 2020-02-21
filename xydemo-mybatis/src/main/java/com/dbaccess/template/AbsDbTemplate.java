@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public abstract class AbsDbTemplate implements Template {
 
-    private final static String driverClass = "com.mysql.jdbc.Driver";
+    private final static String driverClass = "com.mysql.cj.jdbc.Driver";
 
     protected Connection connection = null;
     protected PreparedStatement statement = null;

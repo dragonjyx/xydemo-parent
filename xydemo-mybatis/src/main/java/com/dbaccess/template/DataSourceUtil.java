@@ -5,7 +5,7 @@ package com.dbaccess.template;
  */
 public class DataSourceUtil {
 
-    private static DataSourceUtil ds;
+    private static DataSourceUtil ds = null;
 
     private DataSourceUtil(){
         super();

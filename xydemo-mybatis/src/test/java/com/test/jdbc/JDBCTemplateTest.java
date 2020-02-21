@@ -32,8 +32,8 @@ public class JDBCTemplateTest {
     @Test
     public void execCURD() throws SQLException {
         //在同一个连接中处理多个语句
-        String querySql = "SELECT * FROM t_role";
-        ResultSet resultSet = template.query(querySql);
+        String querySql = "SELECT * FROM t_role WHERE id=?";
+        ResultSet resultSet = template.query(querySql,1);
 
         Role roleModel = null;
         while (resultSet.next()){

@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class JDBCTest {
 
-    private final static String driverClass = "com.mysql.jdbc.Driver";
+    private final static String driverClass = "com.mysql.cj.jdbc.Driver";
     private final static String url = "jdbc:mysql://111.229.196.111:3306/db_xydemo?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private final static String username = "root";
     private final static String password = "root";
@@ -21,6 +21,7 @@ public class JDBCTest {
     @Before
     public void dbInit() throws ClassNotFoundException, SQLException {
         System.out.println("步骤1：加载驱动");
+        //使用反射机制
         Class.forName(driverClass);
 
         System.out.println("步骤2：创建数据库连接");
@@ -35,11 +36,12 @@ public class JDBCTest {
                 "VALUES(now(),now(),0,?,?,?,?,?);";
 
         String remark = "添加新角色";
-        String role  = System.currentTimeMillis() + "";
-        String appid = "A1234567890L";
-        String name = "ADMIN" + new Random().nextInt(10);
+        String role   = System.currentTimeMillis() + "";
+        String appid  = "A1234567890L";
+        String name   = "ADMIN" + new Random().nextInt(10);
         String description = "管理员";
 
+        //连接会话
         statement = connection.prepareStatement(sql);
         statement.setString(1,remark);
         statement.setString(2,role);
@@ -47,15 +49,21 @@ public class JDBCTest {
         statement.setString(4,name);
         statement.setString(5,description);
 
+        //增删改 是不会返回结果的，那么就放回false
         System.out.println("步骤4：执行sql");
         boolean result = statement.execute();
 
         System.out.println("步骤5：处理执行结果：" + result);
 
-        //在同一个连接中处理多个语句
+        //在同一个会话中处理多个语句
         String querySql = "SELECT * FROM t_role";
         statement = connection.prepareStatement(querySql);
+        //查询才会返回结果
         ResultSet resultSet = statement.executeQuery();
+
+        if(resultSet==null){
+            return;
+        }
 
         Role roleModel = null;
         while (resultSet.next()){
