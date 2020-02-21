@@ -25,5 +25,18 @@
     </select>
 
 
+    <delete id="deleteById">
+        DELETE FROM t_role
+        WHERE id=#{roleId}
+    </delete>
+
+
+
+    <insert id="addNewRole">
+        INSERT INTO t_role(create_date,update_date,is_delete,remark,role,appid,`name`,description)
+        VALUES(now(),now(),0,#{remark},#{roleId},#{appId},#{name},#{description})
+    </insert>
+
+
 
 </mapper>

@@ -41,7 +41,7 @@ public class JDBCTemplateTest {
             roleModel.setId(resultSet.getLong("id"));
             roleModel.setCreateDate(resultSet.getDate("create_date"));
             roleModel.setUpdateDate(resultSet.getDate("update_date"));
-            roleModel.setDelete(resultSet.getBoolean("is_delete"));
+            roleModel.setIsDelete(resultSet.getBoolean("is_delete"));
             roleModel.setRemark(resultSet.getString("remark"));
             roleModel.setRoleId(resultSet.getString("role"));
             roleModel.setName(resultSet.getString("name"));

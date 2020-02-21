@@ -32,6 +32,17 @@ public class MybatisTest {
 
     }
 
+
+    @Test
+    public void testDelete(){
+        System.out.println("----------------------");
+        int result = roleMapper.deleteById(2L);
+        System.out.println("删除结果："+result);
+        System.out.println("----------------------");
+    }
+
+
+
     @Test
     public void testQueryWithCache(){
 

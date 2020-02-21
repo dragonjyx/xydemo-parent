@@ -33,7 +33,7 @@ public class JDBCTest {
     public void execCURD() throws SQLException {
         System.out.println("步骤3：准备sql语句以及参数");
         String sql = "INSERT INTO t_role(create_date,update_date,is_delete,remark,role,appid,`name`,description) " +
-                "VALUES(now(),now(),0,?,?,?,?,?);";
+                "VALUES(now(),now(),0,?,?,?,?,?)";
 
         String remark = "添加新角色";
         String role   = System.currentTimeMillis() + "";
@@ -71,7 +71,7 @@ public class JDBCTest {
             roleModel.setId(resultSet.getLong("id"));
             roleModel.setCreateDate(resultSet.getDate("create_date"));
             roleModel.setUpdateDate(resultSet.getDate("update_date"));
-            roleModel.setDelete(resultSet.getBoolean("is_delete"));
+            roleModel.setIsDelete(resultSet.getBoolean("is_delete"));
             roleModel.setRemark(resultSet.getString("remark"));
             roleModel.setRoleId(resultSet.getString("role"));
             roleModel.setName(resultSet.getString("name"));
