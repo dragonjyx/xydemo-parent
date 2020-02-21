@@ -30,6 +30,12 @@
         </dependency>
         <!--单元测试 end-->
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
 
         <!--工具类-->
         <dependency>
