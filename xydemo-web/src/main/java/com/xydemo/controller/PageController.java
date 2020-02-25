@@ -2,6 +2,7 @@ package com.xydemo.controller;
 
 
 import com.xydemo.service.AuthenService;
+import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
 import com.xydemo.utils.uniqueid.UniqueIdGenerate;
 import io.swagger.annotations.Api;
@@ -33,26 +34,8 @@ public class PageController {
         String errStr = request.getParameter("err");
         if(!StringUtils.isEmpty(errStr)){
             int err = Integer.parseInt(errStr);
-
-            switch (err){
-                case 1:{
-                    map.put("errTip","登录账号不能为空");
-                } break;
-                case 2:{
-                    map.put("errTip","登录密码不能为空");
-                } break;
-                case 3:{
-                    map.put("errTip","非法账号");
-                } break;
-                case 4:{
-                    map.put("errTip","账号不存在");
-                } break;
-                case 5:{
-                    map.put("errTip","密码不正确");
-                } break;
-                    default: break;
-            }
-
+            String errorMessage = LoginErrorCodeEnum.getByCode(err).getMessage();
+            map.put("errTip",errorMessage);
         }
         return "login";
     }

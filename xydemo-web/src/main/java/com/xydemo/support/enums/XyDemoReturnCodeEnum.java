@@ -24,8 +24,8 @@ public enum XyDemoReturnCodeEnum implements ReturnCode {
     PASSWORD_IS_NULL("108", "登录密码不能为空"),
     ;
 
-    private String code;
-    private String message;
+    public String code;
+    public String message;
 
     XyDemoReturnCodeEnum(String code, String message) {
         this.code = code;
