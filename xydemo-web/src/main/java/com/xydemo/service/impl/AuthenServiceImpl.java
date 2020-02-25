@@ -3,6 +3,7 @@ package com.xydemo.service.impl;
 import com.xydemo.dao.RbacDao;
 import com.xydemo.model.UserInfo;
 import com.xydemo.service.AuthenService;
+import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
 import com.xydemo.utils.encrypt.MD5Util;
 import com.xydemo.utils.regex.RegexVaildate;
@@ -32,12 +33,12 @@ public class AuthenServiceImpl implements AuthenService {
             userInfo = rbacDao.findByMobile(account);
         }else {
             //非法账号
-            return 3;
+            return LoginErrorCodeEnum.ACCOUNT_IS_ILLEGAL.getCode();
         }
 
         if(userInfo == null){
             //账号不存在
-            return 4;
+            return LoginErrorCodeEnum.ACCOUNT_NOT_EXIST.getCode();
         }
 
         String ukey = userInfo.getUkey();
@@ -45,10 +46,10 @@ public class AuthenServiceImpl implements AuthenService {
 
         if(!md5Pwd.equals(userInfo.getPassword())){
             //密码不正确
-            return 5;
+            return LoginErrorCodeEnum.PASSWORD_IS_TRUE.getCode();
         }
         //登录成功
-        return 0;
+        return LoginErrorCodeEnum.LOGIN_SUCCESS.getCode();
     }
 
 

@@ -12,6 +12,7 @@ import lombok.Getter;
 @Getter
 public enum LoginErrorCodeEnum {
 
+    LOGIN_SUCCESS(0, "登录成功"),
     ACCOUNT_IS_NULL(1, "登录账号不能为空"),
     PASSWORD_IS_NULL(2, "登录密码不能为空"),
     ACCOUNT_IS_ILLEGAL(3, "非法账号"),

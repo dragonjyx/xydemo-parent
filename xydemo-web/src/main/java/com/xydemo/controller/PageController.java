@@ -27,15 +27,16 @@ public class PageController {
     private AuthenService authenService;
 
     public static final String LOGIN_TOKEN = "LOGIN_TOKEN";
+    public static final Integer LOGIN_TOKEN_LEN = 32;
 
     @ApiOperation(value = "登录页面")
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String login(HttpServletRequest request,Map map) {
+    public String login(HttpServletRequest request, Map map) {
         String errStr = request.getParameter("err");
-        if(!StringUtils.isEmpty(errStr)){
+        if (!StringUtils.isEmpty(errStr)) {
             int err = Integer.parseInt(errStr);
             String errorMessage = LoginErrorCodeEnum.getByCode(err).getMessage();
-            map.put("errTip",errorMessage);
+            map.put("errTip", errorMessage);
         }
         return "login";
     }
@@ -48,14 +49,12 @@ public class PageController {
     }
 
 
-
     @ApiOperation(value = "登出")
     @RequestMapping(value = "do-logout", method = RequestMethod.GET)
     public String doLogout(HttpServletRequest request) {
         request.getSession().removeAttribute(LOGIN_TOKEN);
-        return "redirect:login" ;
+        return "redirect:login";
     }
-
 
 
     @ApiOperation(value = "登录表单接口")
@@ -63,11 +62,11 @@ public class PageController {
     public String dologin(HttpServletRequest request, LoginReq loginReq) {
         if (StringUtils.isEmpty(loginReq.getAccount())) {
             //登录账号不能为空
-            return "redirect:login?err=1";
+            return "redirect:login?err=" + LoginErrorCodeEnum.ACCOUNT_IS_NULL.getCode();
         }
         if (StringUtils.isEmpty(loginReq.getPassword())) {
             //登录密码不能为空
-            return "redirect:login?err=2";
+            return "redirect:login?err=" + LoginErrorCodeEnum.PASSWORD_IS_NULL.getCode();
         }
         int result = authenService.doLoginAuthen(loginReq);
 
@@ -76,7 +75,7 @@ public class PageController {
             return "redirect:login?err=" + result;
         }
 
-        String token = UniqueIdGenerate.getId(LOGIN_TOKEN, 32);
+        String token = UniqueIdGenerate.getId(LOGIN_TOKEN, LOGIN_TOKEN_LEN);
         //把token存放在session
         request.getSession().setAttribute(LOGIN_TOKEN, token);
 
