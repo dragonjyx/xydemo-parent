@@ -77,6 +77,7 @@ public class PageController extends BaseController {
         LoginResultVo loginResultVo = null;
         try {
             loginResultVo = authenService.doLoginAuthen(loginReq);
+
         }catch (Exception e){
             log.error("登录错误：",e);
             return "redirect:login?err=" + LoginErrorCodeEnum.LOGIN_FAIL.getCode();
