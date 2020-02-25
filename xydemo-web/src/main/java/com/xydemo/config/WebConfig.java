@@ -1,6 +1,7 @@
 package com.xydemo.config;
 
 
+import com.xydemo.inteceptor.ApiLoginInterceptor;
 import com.xydemo.inteceptor.LoginInteceptor;
 import com.xydemo.utils.config.WebMvcConfig;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,5 +23,6 @@ public class WebConfig extends WebMvcConfig {
         registry.addInterceptor(new LoginInteceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/login","/do-login","/static/**","/docs.html","/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+        registry.addInterceptor(new ApiLoginInterceptor()).addPathPatterns("/api/**");
     }
 }

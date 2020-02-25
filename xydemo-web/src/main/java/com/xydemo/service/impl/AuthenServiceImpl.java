@@ -5,7 +5,9 @@ import com.xydemo.model.UserInfo;
 import com.xydemo.service.AuthenService;
 import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
+import com.xydemo.support.vo.LoginResultVo;
 import com.xydemo.utils.encrypt.MD5Util;
+import com.xydemo.utils.jwt.AuthenUser;
 import com.xydemo.utils.regex.RegexVaildate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,9 @@ public class AuthenServiceImpl implements AuthenService {
 
 
     @Override
-    public int doLoginAuthen(LoginReq loginReq) {
+    public LoginResultVo doLoginAuthen(LoginReq loginReq) {
+        LoginResultVo loginResultVo = new LoginResultVo();
+
         String account = loginReq.getAccount();
         String password = loginReq.getPassword();
 
@@ -33,12 +37,14 @@ public class AuthenServiceImpl implements AuthenService {
             userInfo = rbacDao.findByMobile(account);
         }else {
             //非法账号
-            return LoginErrorCodeEnum.ACCOUNT_IS_ILLEGAL.getCode();
+            loginResultVo.setResult(LoginErrorCodeEnum.ACCOUNT_IS_ILLEGAL.getCode());
+            return loginResultVo;
         }
 
         if(userInfo == null){
             //账号不存在
-            return LoginErrorCodeEnum.ACCOUNT_NOT_EXIST.getCode();
+            loginResultVo.setResult(LoginErrorCodeEnum.ACCOUNT_NOT_EXIST.getCode());
+            return loginResultVo;
         }
 
         String ukey = userInfo.getUkey();
@@ -46,10 +52,17 @@ public class AuthenServiceImpl implements AuthenService {
 
         if(!md5Pwd.equals(userInfo.getPassword())){
             //密码不正确
-            return LoginErrorCodeEnum.PASSWORD_IS_TRUE.getCode();
+            loginResultVo.setResult(LoginErrorCodeEnum.PASSWORD_IS_TRUE.getCode());
+            return loginResultVo;
         }
+
+        AuthenUser authenUser = new AuthenUser();
+        authenUser.setUserId(userInfo.getUserId());
+        authenUser.setUsername(userInfo.getLoginName());
         //登录成功
-        return LoginErrorCodeEnum.LOGIN_SUCCESS.getCode();
+        loginResultVo.setResult(LoginErrorCodeEnum.LOGIN_SUCCESS.getCode());
+        loginResultVo.setAuthenUser(authenUser);
+        return loginResultVo;
     }
 
 

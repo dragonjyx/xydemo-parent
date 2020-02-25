@@ -4,6 +4,10 @@ package com.xydemo.controller;
 import com.xydemo.service.AuthenService;
 import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
+import com.xydemo.support.vo.LoginResultVo;
+import com.xydemo.utils.jwt.AuthenUser;
+import com.xydemo.utils.jwt.JwtUtil;
+import com.xydemo.utils.jwt.UserInfoContext;
 import com.xydemo.utils.uniqueid.UniqueIdGenerate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +31,7 @@ public class PageController {
     private AuthenService authenService;
 
     public static final String LOGIN_TOKEN = "LOGIN_TOKEN";
-    public static final Integer LOGIN_TOKEN_LEN = 32;
+    public static final Integer SESSION_TOKEN_TIMEOUT_SECONDS = 60*60*24;
 
     @ApiOperation(value = "登录页面")
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -53,6 +57,7 @@ public class PageController {
     @RequestMapping(value = "do-logout", method = RequestMethod.GET)
     public String doLogout(HttpServletRequest request) {
         request.getSession().removeAttribute(LOGIN_TOKEN);
+        UserInfoContext.remove();
         return "redirect:login";
     }
 
@@ -68,16 +73,19 @@ public class PageController {
             //登录密码不能为空
             return "redirect:login?err=" + LoginErrorCodeEnum.PASSWORD_IS_NULL.getCode();
         }
-        int result = authenService.doLoginAuthen(loginReq);
-
+        LoginResultVo loginResultVo = authenService.doLoginAuthen(loginReq);
+        int result = loginResultVo.getResult();
         if (result != 0) {
             //登录密码错误
             return "redirect:login?err=" + result;
         }
 
-        String token = UniqueIdGenerate.getId(LOGIN_TOKEN, LOGIN_TOKEN_LEN);
+        AuthenUser authenUser = loginResultVo.getAuthenUser();
+        String token =  JwtUtil.generateToken(authenUser,SESSION_TOKEN_TIMEOUT_SECONDS);
         //把token存放在session
         request.getSession().setAttribute(LOGIN_TOKEN, token);
+        //把用户信息存到上下文
+        UserInfoContext.set(authenUser);
 
         return "redirect:index?token=" + token;
     }
