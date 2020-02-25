@@ -1,6 +1,6 @@
 package com.xydemo;
 
-import com.xydemo.utils.base.ApplicationStartedEventListener;
+import com.xydemo.utils.base.Log4j2ApplicationStartedEventListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,7 +12,7 @@ public class XydemoWebApplication {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(XydemoWebApplication.class);
-        application.addListeners(new ApplicationStartedEventListener());
+        application.addListeners(new Log4j2ApplicationStartedEventListener());
         application.run(args);
     }
 

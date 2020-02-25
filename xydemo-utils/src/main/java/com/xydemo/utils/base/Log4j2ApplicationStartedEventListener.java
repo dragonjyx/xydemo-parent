@@ -21,35 +21,9 @@ import org.springframework.core.env.PropertySource;
  * @author DRAGON-Yeah
  * @date 2019-05-06
  */
-public class ApplicationStartedEventListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
+public class Log4j2ApplicationStartedEventListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
 
     public static final int DEFAULT_ORDER = Ordered.HIGHEST_PRECEDENCE + 10;
-
-    private static Class<?>[] EVENT_TYPES = {
-            ApplicationStartingEvent.class,
-            ApplicationEnvironmentPreparedEvent.class,
-            ApplicationPreparedEvent.class,
-            ContextClosedEvent.class,
-            ApplicationFailedEvent.class
-    };
-
-    private static Class<?>[] SOURCE_TYPES = {
-            SpringApplication.class,
-            ApplicationContext.class
-    };
-
-
-    private boolean isAssignableFrom(Class<?> type, Class<?>... supportedTypes) {
-        if (type != null) {
-            for (Class<?> supportedType : supportedTypes) {
-                if (supportedType.isAssignableFrom(type)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
 
     @Override
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
