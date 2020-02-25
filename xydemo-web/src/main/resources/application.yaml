@@ -3,12 +3,19 @@ server:
 
 
 logging:
+  config: classpath:log4j2-spring.xml
   level:
-    root: INFO
+    root: DEBUG
     io.swagger.models.parameters.AbstractSerializableParameter: error
-#  config: classpath:log4j2-spring.xml
+  path: /soft/log
+
+
 
 spring:
+  application:
+    name: xyDemo
+  profiles:
+    active: local
   freemarker:
     suffix: .html
   mvc:

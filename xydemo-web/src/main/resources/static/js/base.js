@@ -5,7 +5,7 @@ function onSubmit(flag){
 
 
 $(function () {
-    $('input').val('');
+    // $('input').val('');
 
     $('#submit').on('click', function () {
 
