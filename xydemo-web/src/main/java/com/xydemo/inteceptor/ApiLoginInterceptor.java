@@ -2,7 +2,7 @@ package com.xydemo.inteceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xydemo.controller.PageController;
-import com.xydemo.support.enums.XyDemoReturnCodeEnum;
+import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.utils.base.BaseResp;
 import com.xydemo.utils.jwt.AuthenUser;
 import com.xydemo.utils.jwt.JwtUtil;
@@ -49,7 +49,7 @@ public class ApiLoginInterceptor implements HandlerInterceptor {
      * @param response
      */
     protected void responseOutWithJson(HttpServletResponse response) {
-        BaseResp baseResp = BaseResp.error(XyDemoReturnCodeEnum.LOGIN_FAIL);
+        BaseResp baseResp = BaseResp.error(LoginErrorCodeEnum.LOGIN_FAIL.getMessage());
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = null;

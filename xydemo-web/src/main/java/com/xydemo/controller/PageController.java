@@ -5,10 +5,10 @@ import com.xydemo.service.AuthenService;
 import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
 import com.xydemo.support.vo.LoginResultVo;
+import com.xydemo.utils.base.BaseController;
 import com.xydemo.utils.jwt.AuthenUser;
 import com.xydemo.utils.jwt.JwtUtil;
 import com.xydemo.utils.jwt.UserInfoContext;
-import com.xydemo.utils.uniqueid.UniqueIdGenerate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.Map;
 @Slf4j
 @Controller
 @RequestMapping("/")
-public class PageController {
+public class PageController extends BaseController {
 
     @Autowired
     private AuthenService authenService;
@@ -73,7 +73,14 @@ public class PageController {
             //登录密码不能为空
             return "redirect:login?err=" + LoginErrorCodeEnum.PASSWORD_IS_NULL.getCode();
         }
-        LoginResultVo loginResultVo = authenService.doLoginAuthen(loginReq);
+
+        LoginResultVo loginResultVo = null;
+        try {
+            loginResultVo = authenService.doLoginAuthen(loginReq);
+        }catch (Exception e){
+            log.error("登录错误：",e);
+            return "redirect:login?err=" + LoginErrorCodeEnum.LOGIN_FAIL.getCode();
+        }
         int result = loginResultVo.getResult();
         if (result != 0) {
             //登录密码错误

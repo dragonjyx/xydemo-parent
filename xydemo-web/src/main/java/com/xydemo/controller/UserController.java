@@ -5,6 +5,7 @@ import com.xydemo.service.UserService;
 import com.xydemo.support.enums.XyDemoReturnCodeEnum;
 import com.xydemo.utils.asserts.AppAssert;
 import com.xydemo.utils.asserts.ParameterAssert;
+import com.xydemo.utils.base.ApiBaseController;
 import com.xydemo.utils.base.BaseController;
 import com.xydemo.utils.base.BaseResp;
 import io.swagger.annotations.Api;
@@ -21,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "用户模块",tags = "用户模块")
 @Slf4j
 @RestController
-@RequestMapping("user")
-public class UserController extends BaseController {
+@RequestMapping("api/user")
+public class UserController extends ApiBaseController {
 
 
     @Autowired

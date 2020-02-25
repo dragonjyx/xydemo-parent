@@ -17,7 +17,6 @@ import java.util.List;
  * @date: 2019/8/6 14:23
  */
 public class WebMvcConfig extends WebMvcConfigurationSupport {
-
     /**
      * 把Jackson替换为FastJson
      * @param converters

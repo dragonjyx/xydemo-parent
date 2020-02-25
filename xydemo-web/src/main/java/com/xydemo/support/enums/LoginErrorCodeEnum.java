@@ -1,5 +1,6 @@
 package com.xydemo.support.enums;
 
+import com.xydemo.utils.enums.ReturnCode;
 import lombok.Getter;
 
 /**
@@ -19,7 +20,7 @@ public enum LoginErrorCodeEnum {
     ACCOUNT_NOT_EXIST(4, "账号不存在"),
     PASSWORD_IS_TRUE(5, "密码不正确"),
     LOGIN_ERROR_5_TIMES(6, "登录错误次数超过5次，半小时后再进行登录"),
-
+    LOGIN_FAIL(7, "登录失败"),
     ;
 
     private Integer code;

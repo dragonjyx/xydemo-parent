@@ -14,8 +14,6 @@ import java.util.Map;
  */
 @Getter
 public enum XyDemoReturnCodeEnum implements ReturnCode {
-    LOGIN_FAIL("101", "登录失败"),
-    PASSWORD_ERROR("102", "密码错误"),
     UPLOAD_IMG_IS_EMPTY("103", "请选择上传的图片"),
     UPLOAD_IMG_ERROR("104", "上传图片失败"),
     USERID_IS_NULL("105", "请填写用户ID"),

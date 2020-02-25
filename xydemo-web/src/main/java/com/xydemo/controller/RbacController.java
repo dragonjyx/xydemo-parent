@@ -1,6 +1,6 @@
 package com.xydemo.controller;
 
-import com.xydemo.utils.base.BaseController;
+import com.xydemo.utils.base.ApiBaseController;
 import com.xydemo.utils.base.BaseResp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "RBAC模块",tags = "RBAC模块")
 @Slf4j
 @RestController
-@RequestMapping("rbac")
-public class RbacController extends BaseController {
+@RequestMapping("api/rbac")
+public class RbacController extends ApiBaseController {
 
 
     @ApiOperation(value = "获取角色信息")
