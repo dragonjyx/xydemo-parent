@@ -25,11 +25,17 @@ public class Log4j2ApplicationStartedEventListener implements ApplicationListene
 
     public static final int DEFAULT_ORDER = Ordered.HIGHEST_PRECEDENCE + 10;
 
+    private String resourceKey = "applicationConfig: [classpath:/application.yaml]";
+
+    public Log4j2ApplicationStartedEventListener(String resourceKey) {
+        this.resourceKey = resourceKey;
+    }
+
     @Override
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
         ConfigurableEnvironment configurableEnvironment = event.getEnvironment();
         MutablePropertySources mutablePropertySources = configurableEnvironment.getPropertySources();
-        PropertySource<?> propertySource = mutablePropertySources.get("applicationConfig: [classpath:/application.yaml]");
+        PropertySource<?> propertySource = mutablePropertySources.get(this.resourceKey);
         if (propertySource != null) {
             String logPath = (String) propertySource.getProperty("logging.path");
             if (!StringUtils.isEmpty(logPath)) {

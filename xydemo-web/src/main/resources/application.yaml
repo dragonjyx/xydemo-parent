@@ -4,7 +4,7 @@ server:
 
 logging:
   config: classpath:log4j2-spring.xml
-  path: /soft/log
+  path: D:/log
   level:
     root: DEBUG
     io.swagger.models.parameters.AbstractSerializableParameter: error
