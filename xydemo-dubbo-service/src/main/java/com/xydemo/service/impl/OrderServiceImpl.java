@@ -3,7 +3,7 @@ package com.xydemo.service.impl;
 import com.xydemo.service.api.OrderService;
 import com.xydemo.service.model.OrderParams;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import org.apache.dubbo.config.annotation.Service;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ import java.util.UUID;
  * @blame 仓储开发组
  **/
 @Slf4j
-@Service
+@Service(version = "1.0.0")
 public class OrderServiceImpl implements OrderService {
 
     @Override
