@@ -20,7 +20,7 @@
 ### xydemo-web
     完整的J2EE 工程，基于springBoot  
     SSM三层架构
-    页面后端渲染 & 前后端分离
+    页面后端渲染(集成freemarker) & 前后端分离（api交互，token校验）
     Api文档管理
     日志管理
     异常捕捉
