@@ -26,6 +26,7 @@
         <module>xydemo-mybatis</module>
         <module>xydemo-dubbo-service</module>
         <module>xydemo-dubbo-service-api</module>
+        <module>xydemo-dubbo-common</module>
     </modules>
 
 
