@@ -21,6 +21,7 @@ public enum LoginErrorCodeEnum {
     PASSWORD_IS_TRUE(5, "密码不正确"),
     LOGIN_ERROR_5_TIMES(6, "登录错误次数超过5次，半小时后再进行登录"),
     LOGIN_FAIL(7, "登录失败"),
+    USER_IS_LOCKED(8, "用户被锁定，请联系管理员"),
     ;
 
     private Integer code;

@@ -5,6 +5,7 @@ import com.xydemo.service.AuthenService;
 import com.xydemo.support.enums.LoginErrorCodeEnum;
 import com.xydemo.support.req.LoginReq;
 import com.xydemo.support.vo.LoginResultVo;
+import com.xydemo.utils.base.AppUtils;
 import com.xydemo.utils.base.BaseController;
 import com.xydemo.utils.jwt.AuthenUser;
 import com.xydemo.utils.jwt.JwtUtil;
@@ -76,8 +77,9 @@ public class PageController extends BaseController {
 
         LoginResultVo loginResultVo = null;
         try {
+            String ipAddress = AppUtils.getIPAddress(request);
+            loginReq.setLoginIp(ipAddress);
             loginResultVo = authenService.doLoginAuthen(loginReq);
-
         }catch (Exception e){
             log.error("登录错误：",e);
             return "redirect:login?err=" + LoginErrorCodeEnum.LOGIN_FAIL.getCode();

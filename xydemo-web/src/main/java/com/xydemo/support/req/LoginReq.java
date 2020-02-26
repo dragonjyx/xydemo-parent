@@ -23,5 +23,6 @@ public class LoginReq {
     @NotEmpty(message = "登录密码不能为空")
     private String password;
 
-
+    //登录IP
+    private String loginIp;
 }

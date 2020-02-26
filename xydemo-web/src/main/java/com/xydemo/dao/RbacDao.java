@@ -31,4 +31,7 @@ public class RbacDao {
     }
 
 
+    public int updateUserInfo(UserInfo userInfo) {
+        return userInfoMapper.updateByPrimaryKeySelective(userInfo);
+    }
 }
