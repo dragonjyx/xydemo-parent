@@ -1,5 +1,6 @@
 #xydemo-parent 工程
 
+MVC
 ### xydemo-dao-common
      数据库持久层依赖整理
 
@@ -26,4 +27,20 @@
     异常捕捉
     参数校验
     认证授权
+ #
+ RPC
+### xydemo-dubbo-common
+       dubbo引入整理
+ 
+### xydemo-dubbo-service-api
+       dubbo api接口层
+        
+### xydemo-dubbo-service
+       dubbo api实现（提供者）
+       
+### xydemo-dubbo-client
+        dubbo api调用（消费者）
+ 
+ 
+ 
     
