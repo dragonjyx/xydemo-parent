@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/xydemo-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xydemo-dubbo-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xydemo-dubbo-client/pom.xml" />
       </list>
     </option>
   </component>

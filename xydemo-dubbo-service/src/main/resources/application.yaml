@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: xydemo-dubbo-service
+
+nacos:
+  service-address: 10.11.41.65
+  port: 8848
+dubbo:
+  registry:
+    address: nacos://${nacos.service-address}:${nacos.port}
+  protocol:
+    name: dubbo
+    port: 9901
+  scan:
+    base-packages: com.xydemo.service.impl
+
+
+
+
+
+
+

@@ -24,6 +24,8 @@
         <module>xydemo-utils</module>
         <module>xydemo-dao-common</module>
         <module>xydemo-mybatis</module>
+        <module>xydemo-dubbo-service</module>
+        <module>xydemo-dubbo-service-api</module>
     </modules>
 
 

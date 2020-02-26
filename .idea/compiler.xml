@@ -7,6 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="xydemo-dao-common" />
+        <module name="xydemo-dubbo-client" />
+        <module name="xydemo-dubbo-service" />
+        <module name="xydemo-dubbo-service-api" />
         <module name="xydemo-mybatis" />
         <module name="xydemo-spring" />
         <module name="xydemo-startweb" />
