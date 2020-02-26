@@ -9,7 +9,9 @@ logging:
     root: DEBUG
     io.swagger.models.parameters.AbstractSerializableParameter: error
 
-
+#登录成功后，重定向的url
+frontend:
+  url: "index"
 
 
 spring:

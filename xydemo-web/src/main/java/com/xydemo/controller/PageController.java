@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,11 +29,14 @@ import java.util.Map;
 @RequestMapping("/")
 public class PageController extends BaseController {
 
+    @Value("${frontend.url}")
+    private String frontendUrl;
+
     @Autowired
     private AuthenService authenService;
 
     public static final String LOGIN_TOKEN = "LOGIN_TOKEN";
-    public static final Integer SESSION_TOKEN_TIMEOUT_SECONDS = 60*60*24;
+    public static final Integer SESSION_TOKEN_TIMEOUT_SECONDS = 60 * 60 * 24;
 
     @ApiOperation(value = "登录页面")
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -80,8 +84,8 @@ public class PageController extends BaseController {
             String ipAddress = AppUtils.getIPAddress(request);
             loginReq.setLoginIp(ipAddress);
             loginResultVo = authenService.doLoginAuthen(loginReq);
-        }catch (Exception e){
-            log.error("登录错误：",e);
+        } catch (Exception e) {
+            log.error("登录错误：", e);
             return "redirect:login?err=" + LoginErrorCodeEnum.LOGIN_FAIL.getCode();
         }
         int result = loginResultVo.getResult();
@@ -91,13 +95,13 @@ public class PageController extends BaseController {
         }
 
         AuthenUser authenUser = loginResultVo.getAuthenUser();
-        String token =  JwtUtil.generateToken(authenUser,SESSION_TOKEN_TIMEOUT_SECONDS);
+        String token = JwtUtil.generateToken(authenUser, SESSION_TOKEN_TIMEOUT_SECONDS);
         //把token存放在session
         request.getSession().setAttribute(LOGIN_TOKEN, token);
         //把用户信息存到上下文
         UserInfoContext.set(authenUser);
 
-        return "redirect:index?token=" + token;
+        return "redirect:" + frontendUrl + "?token=" + token;
     }
 
 
