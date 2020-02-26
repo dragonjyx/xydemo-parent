@@ -28,7 +28,7 @@ MVC
     参数校验
     认证授权
  #
- RPC
+ RPC (使用nacos作为注册中心)
 ### xydemo-dubbo-common
        dubbo引入整理
  
