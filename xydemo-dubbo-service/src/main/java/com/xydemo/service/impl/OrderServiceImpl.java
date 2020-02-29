@@ -1,7 +1,7 @@
 package com.xydemo.service.impl;
 
+import com.xydemo.model.OrderParams;
 import com.xydemo.service.api.OrderService;
-import com.xydemo.service.model.OrderParams;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
 

@@ -8,10 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="xydemo-dao-common" />
         <module name="xydemo-dubbo-client" />
+        <module name="xydemo-dubbo-common" />
         <module name="xydemo-dubbo-service" />
         <module name="xydemo-dubbo-service-api" />
+        <module name="xydemo-model" />
         <module name="xydemo-mybatis" />
+        <module name="xydemo-nacos-properties-seperate" />
         <module name="xydemo-spring" />
+        <module name="xydemo-springcloud-consumer" />
+        <module name="xydemo-springcloud-provider" />
         <module name="xydemo-startweb" />
         <module name="xydemo-utils" />
         <module name="xydemo-web" />

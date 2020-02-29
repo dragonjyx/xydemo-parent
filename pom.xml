@@ -24,9 +24,14 @@
         <module>xydemo-utils</module>
         <module>xydemo-dao-common</module>
         <module>xydemo-mybatis</module>
+        <module>xydemo-dubbo-client</module>
         <module>xydemo-dubbo-service</module>
         <module>xydemo-dubbo-service-api</module>
         <module>xydemo-dubbo-common</module>
+        <module>xydemo-springcloud-provider</module>
+        <module>xydemo-springcloud-consumer</module>
+        <module>xydemo-nacos-properties-seperate</module>
+        <module>xydemo-model</module>
     </modules>
 
 

@@ -1,7 +1,7 @@
 package com.xydemo.controller;
 
+import com.xydemo.model.OrderParams;
 import com.xydemo.service.api.OrderService;
-import com.xydemo.service.model.OrderParams;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;

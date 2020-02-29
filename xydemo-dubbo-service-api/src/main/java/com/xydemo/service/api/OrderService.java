@@ -1,6 +1,7 @@
 package com.xydemo.service.api;
 
-import com.xydemo.service.model.OrderParams;
+
+import com.xydemo.model.OrderParams;
 
 /**
  * @author oyxl 10071355

@@ -30,6 +30,18 @@ public class BaseResp<T> {
     private T data;
 
 
+    /**
+     * 返回是否正确
+     * @return
+     */
+    public boolean isSuccess(){
+        if(!this.getCode().equals("0")){
+            return false;
+        }
+        return true;
+    }
+
+
     public static BaseResp success() {
         return new BaseResp(SystemConsts.SUCCESS_CODE);
     }
