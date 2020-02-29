@@ -1,0 +1,27 @@
+people:
+  name: "小明"
+  age: 26
+
+goods:
+  name: "iPhone X"
+  size: 5.7
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#启动熔断器
+feign:
+  sentinel:
+    enabled: true
+
+
+
+
+
+
+
+

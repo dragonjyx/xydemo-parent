@@ -33,7 +33,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!--nacos发现-->
+        <!-- nacos 注册中心 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
