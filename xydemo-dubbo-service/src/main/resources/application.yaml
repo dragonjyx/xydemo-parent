@@ -15,6 +15,9 @@ dubbo:
     port: 19901
   scan:
     base-packages: com.xydemo.service.impl
+  provider:
+    protocols:
+
 
 
 

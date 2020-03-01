@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/xydemo-dao-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xydemo-dubbo-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xydemo-dubbo-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xydemo-dubbo-restful-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xydemo-dubbo-sentinel-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xydemo-dubbo-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xydemo-dubbo-service-api" charset="UTF-8" />

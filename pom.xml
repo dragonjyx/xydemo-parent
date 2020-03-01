@@ -32,6 +32,7 @@
         <module>xydemo-springcloud-consumer</module>
         <module>xydemo-nacos-properties-seperate</module>
         <module>xydemo-model</module>
+        <module>xydemo-dubbo-restful-common</module>
     </modules>
 
 

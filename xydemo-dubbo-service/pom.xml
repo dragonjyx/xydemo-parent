@@ -40,11 +40,21 @@
             <version>1.0.0</version>
         </dependency>
 
+        <!--引入apache dubbo-->
         <dependency>
             <groupId>com.xydemo.parent</groupId>
             <artifactId>xydemo-dubbo-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!--引入Restful-->
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-dubbo-restful-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
