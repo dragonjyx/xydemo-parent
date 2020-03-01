@@ -9,6 +9,7 @@
         <module name="xydemo-dao-common" />
         <module name="xydemo-dubbo-client" />
         <module name="xydemo-dubbo-common" />
+        <module name="xydemo-dubbo-sentinel-client" />
         <module name="xydemo-dubbo-service" />
         <module name="xydemo-dubbo-service-api" />
         <module name="xydemo-model" />

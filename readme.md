@@ -1,6 +1,6 @@
 #xydemo-parent 工程
 
-MVC
+[SpringMVC](http://www.springmvc.cn/) -以[Spring](https://spring.io/)为核心的SSM(SpringMVC,Spring,Mybatis)工程
 ### xydemo-dao-common
      数据库持久层依赖整理
 
@@ -28,7 +28,7 @@ MVC
     参数校验
     认证授权
  #
- RPC —以[dubbo](http://dubbo.apache.org/)为案例，使用[nacos](https://nacos.io)作为注册中心
+ [RPC](https://www.jianshu.com/p/7d6853140e13) —以[dubbo](http://dubbo.apache.org/)为案例，使用[nacos](https://nacos.io)作为注册中心
  ![image](http://dubbo.apache.org/img/architecture.png)
 
 ### xydemo-dubbo-common
@@ -39,10 +39,32 @@ MVC
         
 ### xydemo-dubbo-service
        dubbo api实现（提供者）
+       基于nacos注册中心
        
 ### xydemo-dubbo-client
-        dubbo api调用（消费者）
+       dubbo api调用（消费者）
+       基于nacos注册中心
  
+### xydemo-dubbo-sentinel-client
+       dubbo 限流熔断（未完成）
+       基于nacos注册中心
+   
  
- 
-    
+#
+ [Spring Cloud](https://www.springcloud.cc/) -使用[OpenFeign](https://spring.io/projects/spring-cloud-openfeign)作为客户端，[Sentinel](https://github.com/alibaba/Sentinel)作为限流熔断服务，使用[nacos](https://nacos.io)作为注册中心
+
+### xydemo-springcloud-provider
+       基于SpringBoot Web服务提供者 
+       基于nacos注册中心  
+
+### xydemo-springcloud-consumer
+       基于SpringBoot Web服务消费者
+       基于nacos注册中心
+       集成OpenFeign
+       集成Sentinel 熔断功能
+       
+### xydemo-nacos-properties-seperate
+      基于nacos注册中心
+      使用nacos作配置分离
+          
+

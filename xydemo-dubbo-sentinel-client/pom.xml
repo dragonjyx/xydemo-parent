@@ -9,26 +9,31 @@
     </parent>
 
     <groupId>com.xydemo</groupId>
-    <artifactId>xydemo-dubbo-client</artifactId>
-    <name>xydemo-dubbo-client</name>
-    <description>dubbo client</description>
+    <artifactId>xydemo-dubbo-sentinel-client</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>xydemo-dubbo-sentinel-client</name>
+    <description>xydemo-dubbo-sentinel-client</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        <!--spring boot 启动web 内嵌tomcat-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--spring boot 启动web 内嵌tomcat end-->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xydemo.parent</groupId>
+            <artifactId>xydemo-dubbo-common</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!--引入api-->
@@ -38,11 +43,13 @@
             <version>1.0.0</version>
         </dependency>
 
+        <!--熔断器-->
         <dependency>
-            <groupId>com.xydemo.parent</groupId>
-            <artifactId>xydemo-dubbo-common</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-dubbo-adapter</artifactId>
+            <version>1.7.0</version>
         </dependency>
+
 
 
     </dependencies>

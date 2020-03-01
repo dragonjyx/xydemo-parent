@@ -4,7 +4,14 @@ server:
 
 spring:
   application:
-    name: xydemo-dubbo-client
+    name: xydemo-dubbo-sentinel-client
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.0.101:8080
+      eager: true
+
 
 nacos:
   service-address: 192.168.0.172
@@ -18,11 +25,4 @@ dubbo:
 feign:
   sentinel:
     enabled: true
-
-
-
-
-
-
-
 

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/xydemo-springcloud-provider/pom.xml" />
         <option value="$PROJECT_DIR$/xydemo-springcloud-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/xydemo-nacos-properties-seperate/pom.xml" />
+        <option value="$PROJECT_DIR$/xydemo-dubbo-sentinel-client/pom.xml" />
       </list>
     </option>
   </component>
