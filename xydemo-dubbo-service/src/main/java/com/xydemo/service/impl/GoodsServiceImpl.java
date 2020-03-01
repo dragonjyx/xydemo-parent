@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 @Path("goods")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces({MediaType.APPLICATION_JSON})
-@Service(version = "1.0.0",protocol = {"rest"})
+@Service(version = "1.0.0")
 public class GoodsServiceImpl implements GoodsService {
 
 
