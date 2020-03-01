@@ -66,5 +66,7 @@
 ### xydemo-nacos-properties-seperate
       基于nacos注册中心
       使用nacos作配置分离
+      bootstrap.yml:启动SpringBoot时候第一个调用的配置文件
+      xydemo-nacos-properties-seperate-dev.yaml:nacos上的配置
           
 
