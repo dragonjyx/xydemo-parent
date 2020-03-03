@@ -11,9 +11,9 @@ import javax.ws.rs.core.MediaType;
 
 @Slf4j
 @Path("goods")
-@Consumes({MediaType.APPLICATION_JSON})
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Produces({MediaType.APPLICATION_JSON})
-@Service(version = "1.0.0")
+@Service(version = "1.0.0",protocol = {"dubbo","rest"})
 public class GoodsServiceImpl implements GoodsService {
 
 

@@ -39,6 +39,7 @@
         
 ### xydemo-dubbo-service
        dubbo api实现（提供者）
+       restful api(提供者)
        基于nacos注册中心
        
 ### xydemo-dubbo-client

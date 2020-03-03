@@ -15,7 +15,7 @@ import java.util.UUID;
  * @blame 仓储开发组
  **/
 @Slf4j
-@Service(version = "1.0.0")
+@Service(version = "1.0.0",protocol = {"dubbo"})
 public class OrderServiceImpl implements OrderService {
 
     @Override

@@ -8,15 +8,22 @@ nacos:
   service-address: 192.168.0.172
   port: 8848
 dubbo:
+  application:
+    name: xydemo-dubbo-service
   registry:
     address: nacos://${nacos.service-address}:${nacos.port}
-  protocol:
-    name: dubbo
-    port: 19901
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 20001
+      server: netty
+    rest:
+      name: rest
+      port: 8088
+      server: jetty
   scan:
     base-packages: com.xydemo.service.impl
-  provider:
-    protocols:
+
 
 
 
