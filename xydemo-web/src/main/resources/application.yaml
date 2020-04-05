@@ -4,7 +4,7 @@ server:
 
 logging:
   config: classpath:log4j2-spring.xml
-  path: D:/log
+  path: /Users/xiaolongouyang/Documents/apps/logs
   level:
     root: DEBUG
     io.swagger.models.parameters.AbstractSerializableParameter: error
@@ -27,7 +27,7 @@ spring:
     name: db_xydemo
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://111.229.196.111:3306/db_xydemo?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://192.168.0.172:3306/db_xydemo?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: root
     druid:

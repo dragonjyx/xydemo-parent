@@ -6,8 +6,8 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
-
 userInfo:
   name: "小强"
+
 
 
