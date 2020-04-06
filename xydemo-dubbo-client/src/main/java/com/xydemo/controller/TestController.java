@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 @RestController
 public class TestController {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.0",timeout = 3000)
     private OrderService orderService;
 
     @GetMapping("order/gen")
