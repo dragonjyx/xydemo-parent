@@ -2,6 +2,8 @@ package com.xydemo.service;
 
 import com.xydemo.model.UserInfo;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
@@ -10,6 +12,9 @@ public interface UserService {
      * @return
      */
     UserInfo queryUserInfo(String userId);
+
+
+    List<UserInfo> allUserInfo();
 
 
 }

@@ -5,8 +5,10 @@ import com.xydemo.model.UserInfo;
 import com.xydemo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @Slf4j
@@ -24,4 +26,13 @@ public class UserServiceImpl implements UserService {
         UserInfo userInfo = userInfoMapper.queryByUserId(userId);
         return userInfo;
     }
+
+    @Override
+    public List<UserInfo> allUserInfo() {
+        Example example = new Example(UserInfo.class);
+        List<UserInfo>  userInfoList = userInfoMapper.selectByExample(example);
+        return userInfoList;
+    }
+
+
 }
