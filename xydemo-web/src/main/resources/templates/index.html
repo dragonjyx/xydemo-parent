@@ -14,5 +14,54 @@
     </form>
 
 
+    <br/>
+
+    <button id="testBtn" style="color: #ff5500;size: 20px; width: 80px; height: 35px;">测试POST-json</button>
+
+
+
 </body>
+
+<script src="../static/js/jquery.min.js"></script>
+
+<script>
+
+
+
+    $("#testBtn").click(function () {
+
+        var data = {
+            "email":"abc@qq.com",
+            "mobile":"15626222192",
+            "loginName":"dragon"
+        };
+
+        $.ajax({
+            url:"/api/user/query",
+            type:"POST",
+            dataType :"json",
+            data:JSON.stringify(data),
+            cache: false,
+            headers:{
+                "Content-Type":"application/json",
+                "LOGIN_TOKEN":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKV1RfVVNFUlMiLCJpc3MiOiJKV1RfRFJBR09OLVllYWgiLCJ1c2VyTmFtZSI6ImRyYWdvbiIsImV4cCI6MTU4NjM0NTU5OSwidXNlcklkIjoiMDAwMDAwMDAwMDAwMDAyNTU3Njg0Mzc5NDk3MjY3MjAiLCJpYXQiOjE1ODYyNTkxOTksImp0aSI6IjU3OWE1MjhjLWZhNTYtNDcyNS04ZmYxLWNiNGIyMjNmM2Q4ZSJ9.XgAwRDWaFZVsbTu5WavWwdSlwOgs8nYDWgYvnmX3Lgw",
+                "Cookie":"pmaCookieVer=4; pma_lang=zh_CN; pma_collation_connection=utf8_unicode_ci; pma_iv-1=oWorj5K2LYZd9fuZTn%2FjFw%3D%3D; pmaUser-1=WA9ruLZtTtFF12oXKbzWHg%3D%3D; JSESSIONID=73C4AC3A3C8DDF0CE97AC5E5A8C311F2"
+            },
+            success: function (res) {
+                console.log(res)
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        });
+
+    });
+
+
+</script>
+
+
+
+
+
 </html>

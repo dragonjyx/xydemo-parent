@@ -43,8 +43,8 @@ public class UserController extends ApiBaseController {
 
     @ResponseBody
     @RequestMapping(value = "query",method = RequestMethod.POST)
-    public BaseResp queryTest(UserQueryReq userQueryReq){
-        log.warn("请求参数：",userQueryReq.toString());
+    public BaseResp queryTest(@RequestBody UserQueryReq userQueryReq){
+        log.warn("请求参数：{}",userQueryReq.toString());
         List<UserInfo> userInfoList = userService.allUserInfo();
         return BaseResp.success(userInfoList);
 
