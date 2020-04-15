@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
 </head>
 <body>
 
-    ${user.userName} FTL 登录成功
+    <span th:text="${user.userName}"></span> thymeleaf 表达式：
+    <br/> 标签值：  th:text="${user.userName}"
+    <br/> src内表达式： th:src="@{../static/js/base.js?version={ver}(ver=${version})}"
+
+    <script th:src="@{../static/js/base.js?version={ver}(ver=${version})}"></script>
 
 </body>
 </html>

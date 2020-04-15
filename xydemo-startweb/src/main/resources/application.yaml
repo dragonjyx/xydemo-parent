@@ -1,13 +1,21 @@
 server:
   port: 10001
-spring:
-  freemarker:
-    suffix: .html
-  mvc:
-    static-path-pattern: /static/**
+
 
 userInfo:
-  name: "小强"
+  name: "hello"
+
+
+spring:
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    check-template-location: true
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    servlet:
+      content-type: text/html
 
 
 

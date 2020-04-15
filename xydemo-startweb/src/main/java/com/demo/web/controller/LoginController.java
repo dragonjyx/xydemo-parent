@@ -5,6 +5,7 @@ import com.demo.web.model.vo.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +41,9 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "index",method = RequestMethod.GET)
-    public String index(Map map){
+    public String index(ModelMap map){
         map.put("user",userInfo);
+        map.put("version","1.0.0");
         return "index";
     }
 
