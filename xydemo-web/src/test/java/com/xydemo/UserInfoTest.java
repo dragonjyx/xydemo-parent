@@ -4,6 +4,9 @@ import com.xydemo.utils.encrypt.MD5Util;
 import com.xydemo.utils.uniqueid.UniqueIdGenerate;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class UserInfoTest {
 
 
@@ -29,6 +32,16 @@ public class UserInfoTest {
 
 
 
+    }
+
+    @Test
+    public void testList(){
+
+        String[] s = {"aa","bb","cc"};
+        List<String> strlist = Arrays.asList(s);
+        System.out.println(strlist.toString());
+        s[1] = "ddddd";
+        System.out.println(strlist.toString());
     }
 
 
